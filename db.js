@@ -15,3 +15,22 @@ function getUser (id, connection) {
   .select('*', 'users.id as user_id', 'profiles.id as profile_id')
   .first()
 }
+
+function newProfile (newData, connection){
+var profileData = {
+  name:newData.name,
+  email:newData.email
+}
+return connection('users')
+.insert(profileData)
+
+}
+
+// function  (newdata, connection) {
+//   var usersData = {
+//     name: newdata.UserName,
+//     email: newdata.email
+//   }
+//   return connection('users')
+//     .insert(usersData)
+// }
