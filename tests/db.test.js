@@ -20,10 +20,11 @@ test('getUsers gets all users', function (t) {
 })
 
 test('getUsers gets a single user', function (t) {
-  var expected = 'Ambitious Aardvark'
+  var expected = {name:'Ambitious Aardvark', starSign:'cancer'}
   return db.getUser(99901, t.context.connection)
     .then(function (result) {
-      var actual = result[0].name
-      t.is(expected, actual)
+      var actual = {name:result.name,starSign:result.starSign}
+      t.is(expected.name, actual.name)
+      t.is(expected.starSign, actual.starSign)
     })
 })
