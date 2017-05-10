@@ -1,13 +1,14 @@
 
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
+exports.seed = function (knex, Promise) {
   return knex('profiles').del()
     .then(function () {
-      // Inserts seed entries
-      return knex('profiles').insert([
-        {id: 1, user_id: 'starSign'},
-        {id: 2, user_id: 'starSign'},
-        {id: 3, user_id: 'starSign'}
+      return Promise.all([
+        knex('profiles').insert({user_id: 99901,id: 1, starSign: 'cancer', url: 'http://www.stuff.co.nz/world/americas/9241292/fbi-director-james-comey-fired-by-donald-trump'}),
+        knex('profiles').insert({user_id: 99902,id: 2, starSign: 'cancer', url: 'http://www.stuff.co.nz/world/americas/9241292/fbi-director-james-comey-fired-by-donald-trump'}),
+        knex('profiles').insert({user_id: 99903,id: 3, starSign: 'cancer', url: 'http://www.stuff.co.nz/world/americas/9241292/fbi-director-james-comey-fired-by-donald-trump'}),
+        knex('profiles').insert({user_id: 99904,id: 4, starSign: 'cancer', url: 'http://www.stuff.co.nz/world/americas/9241292/fbi-director-james-comey-fired-by-donald-trump'}),
+        knex('profiles').insert({user_id: 99905,id: 5, starSign: 'cancer', url: 'http://www.stuff.co.nz/world/americas/9241292/fbi-director-james-comey-fired-by-donald-trump'})
+
       ]);
     });
-};
+  };

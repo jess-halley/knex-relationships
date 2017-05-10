@@ -20,7 +20,7 @@ router.get('/profile/:id', function (req, res){
   db.getUser(id, connection)
   .then((results) => {
     console.log({results});
-    res.render('profile.hbs', results[0])
+    res.render('profile.hbs', results)
   })
   .catch(function (err) {
     res.status(500).send('DATABASE ERROR: ' + err.message)
